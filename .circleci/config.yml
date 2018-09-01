@@ -4,7 +4,7 @@ jobs:
   build:
     docker:
       - image: ruby:2.4
-  working_directory: ~/repo
-  steps:
-    - checkout
-    - run: bundle exec ruby slack.rb
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: bundle exec ruby slack.rb
