@@ -12,7 +12,7 @@ jobs:
 workflows:
   version: 2
   normal_workflow:
-    job:
+    jobs:
       - build
   schedule_workflow:
     triggers:
