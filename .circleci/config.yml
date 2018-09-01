@@ -8,4 +8,4 @@ jobs:
     steps:
       - checkout
       - run: bundle install
-      - run: bundle exec ruby slack.rb
+      - run: bundle exec ruby htmlparser.rb
