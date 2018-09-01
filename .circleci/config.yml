@@ -11,10 +11,13 @@ jobs:
       - run: bundle exec ruby htmlparser.rb
 workflows:
   version: 2
+  normal_workflow:
+    job:
+      - build
   schedule_workflow:
     triggers:
       - schedule:
-          cron: "10 10 * * *" # UTCで記述。-9
+          cron: "1 11 * * *" # UTCで記述。-9
           filters:
             branches:
               only:
