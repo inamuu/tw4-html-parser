@@ -1,8 +1,9 @@
 require 'slack/incoming/webhooks'
 require 'dotenv'
 
-slack = Slack::Incoming::Webhooks.new ENV['APIKEY']
-slackvar = 'test'
+Dotenv.load
+slack = Slack::Incoming::Webhooks.new ENV["APIKEY"]
+slackvar = "test"
 
 attachments = [{
   fields: [
