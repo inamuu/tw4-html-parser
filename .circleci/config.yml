@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ruby:2.4
+      - image: ruby:2.6
     working_directory: ~/repo
     steps:
       - checkout
