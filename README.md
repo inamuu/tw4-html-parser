@@ -10,3 +10,9 @@ $ echo 'APIKEY = "*****"' > .env
 ```sh
 $ bundle exec htmlparser.rb
 ```
+
+### Test CircleCi
+
+```sh
+circleci build --env APIKEY=XXX
+```
