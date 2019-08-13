@@ -31,5 +31,5 @@ list['siteurl'].each do | url |
   }]
 
   slack.post "", attachments: attachments
- 
+
 end
