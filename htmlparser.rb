@@ -22,18 +22,27 @@ class Tw4HtmlParser
     end
   end
 
+  def get_image
+    url = @@notify_url.gsub(/.html.*/, '.html' ).gsub(/^\s/, '')
+    doc = Nokogiri::HTML(open(url).read)
+    imgsrc = doc.xpath('//div[@class="section-body"]//div[@class="pgroup"]//p/img').attribute('src').value
+    @@img_url = "https://sai-zen-sen.jp" + imgsrc
+  end
+
   def notify_slack
     Dotenv.load
     slack = Slack::Incoming::Webhooks.new ENV["APIKEY"]
     notify_url = @@notify_url
+    img_url    = @@img_url
     attachments = [{
       color: "#483D8B",
       fields: [
         {
         title: "妄想テレパシー最新話",
-        value: notify_url,
+        value: notify_url
         }
       ],
+      image_url: img_url
     }]
     slack.post "", attachments: attachments
   end
@@ -42,4 +51,5 @@ end
 list = YAML.load_file("list.yaml")
 res = Tw4HtmlParser.new(list)
 res.site_parser
+res.get_image
 res.notify_slack
