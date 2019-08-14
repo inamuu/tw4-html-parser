@@ -8,7 +8,7 @@ $ echo 'APIKEY = "*****"' > .env
 
 ### How to use
 ```sh
-$ bundle exec htmlparser.rb
+$ bundle exec ruby htmlparser.rb
 ```
 
 ### Test CircleCi
